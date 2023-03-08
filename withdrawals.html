@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Token Creation and Vesting</title>
+    
+</head>
+<body>
+
+    <div id="header-container">
+        <h1 class="header-title">TOKEN MINTER AND VESTING APP</h1> 
+        <h2 class="header-subtitle">Withdrawals</h2>
+        <nav>
+            <a id="home-link" href="home.html">Home Page</a>
+            <a id="withdrawals-link" href="withdrawals.html">Withdrawals Page</a>
+            <a id="presale-link" href="pre-sale.html">Pre-Sale Page</a>
+        </nav>
+    </div>
+
+    <!----------------  CONNECT METAMASK AND ENTER TOKEN CONTRACT  ------------->
+
+    
+    <div id="sub-connect-wrapper">
+        <button onclick="connectMetamask()" id="connect-btn">Connect to Metamask</button>
+        <p id="metamask-connection-message">Not Connected</p>
+    </div>
+ 
+    <div id="connect-contract-wrapper">
+        <form class="form-wrapper">
+            <label class="form-label" id="token-contract-address-label">Input token contract address:</label>
+            <input class="form-input address-input" id="token-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button onclick="getTokenAddress()" id="submit-btn">Submit Address</button>
+        <p class="confirmation-message" id="submit-token-address-confirmation"></p>
+    </div>
+    
+
+    <!----------------  FOUNDERS SECTION ------------->
+    
+    <h1  class="section-title">Withdraw Tokens: Founders</h1>
+    <div class="section-container">
+        <h3 class="section-subtitle">Step 1 ... Input Vesting Contract Address for Founders</h3>
+        <form class="form-wrapper">
+            <label class="form-label address-label" id="founders-contract-address-label">Input address:</label>
+            <input class="form-input address-input" id="founders-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button class="main-section-btn" onclick="getFounderAddress()">Submit Address</button>
+        <p class="confirmation-message" id="submit-founder-address-confirmation"></p>
+
+        <h3 class="section-subtitle">Step 2 ... Check Your Token Balance</h3>
+        <button class="main-section-btn check-balance-btn" onclick="getFounderBalance()">Check Balance</button>
+        <p class="data-check" id="founder-balance"></p>
+
+
+        <h3 class="section-subtitle">Step 3 ... Withdraw your Tokens</h3>
+        <form class="form-wrapper">
+            <input class="form-input" id="foundersAmount" placeholder="Enter # of tokens to withdraw" />
+        </form>
+        
+        <button class="main-section-btn" onclick="withdrawFounderTokens()">Withdraw Tokens</button> 
+        <p class="confirmation-message" id="founders-token-withdrawal-confirmation"></p>
+
+    </div>
+    
+    
+
+    <!----------------  INVESTORS SECTION ------------->
+    
+    <h1  class="section-title">Withdraw Tokens: Investors</h1>
+    <div class="section-container">
+        <h3 class="section-subtitle">Step 1 ... Input Vesting Contract Address for Investors</h3>
+        <form class="form-wrapper">
+            <label class="form-label address-label" id="investors-contract-address-label">Input address:</label>
+            <input class="form-input address-input" id="investors-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button class="main-section-btn" onclick="getInvestorAddress()">Submit Address</button>
+        <p class="confirmation-message" id="submit-investor-address-confirmation"></p>
+
+        <h3 class="section-subtitle">Step 2 ... Check Your Token Balance</h3>
+        <button class="main-section-btn check-balance-btn" onclick="getInvestorBalance()">Check Token Balance</button>
+        <p class="data-check" id="investor-balance"></p>
+
+        <h3 class="section-subtitle">Step 3 ... Withdraw your Tokens</h3>
+        <form class="form-wrapper">
+            <input class="form-input" id="investorsAmount" placeholder="Enter # of tokens to withdraw" />
+        </form>
+        <button class="main-section-btn" onclick="withdrawInvestorTokens()">Withdraw Tokens</button> 
+        <p class="confirmation-message" id="investors-token-withdrawal-confirmation"></p>
+    </div>
+
+    <!----------------  PRE-SALE SECTION ------------->
+
+    <h1  class="section-title">Withdraw Tokens: Presale Buyers</h1>
+    <div class="section-container">
+        <h3 class="section-subtitle">Step 1 ... Input Vesting Contract Address for Presale Buyers</h3>
+        <form class="form-wrapper">
+            <label class="form-label address-label" id="presale-contract-address-label">Input address:</label>
+            <input class="form-input address-input" id="presale-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button class="main-section-btn" onclick="getPresaleAddress()">Submit Address</button>
+        <p class="confirmation-message" id="submit-presale-address-confirmation"></p>
+
+        <h3 class="section-subtitle">Step 2 ... Check Your Token Balance</h3>
+        <button class="main-section-btn check-balance-btn" onclick="getPresaleBalance()">Check Token Balance</button>
+        <p class="data-check" id="presale-balance"></p>
+
+        <h3 class="section-subtitle">Step 3 ... Withdraw your Tokens</h3>
+        <form class="form-wrapper">
+            <input class="form-input" id="presaleAmount" placeholder="Enter # of tokens to withdraw" />
+        </form>
+        <button class="main-section-btn" onclick="withdrawPresaleTokens()">Withdraw Tokens</button> 
+        <p class="confirmation-message" id="presale-token-withdrawal-confirmation"></p>
+    </div>
+
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+    <script src="index.js" ></script>
+    
+</body>
+</html>

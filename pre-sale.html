@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Token Creation and Vesting</title>
+    
+</head>
+
+<body>
+
+    <div id="header-container">
+        <h1 class="header-title">TOKEN MINTER AND VESTING APP</h1> 
+        <h2 class="header-subtitle">Presale</h2>
+        <nav>
+            <a id="home-link" href="home.html">Home Page</a>
+            <a id="withdrawals-link" href="withdrawals.html">Withdrawals Page</a>
+            <a id="presale-link" href="pre-sale.html">Pre-Sale Page</a>
+        </nav>
+    </div>
+
+    <!----------------  CONNECT METAMASK AND ENTER TOKEN CONTRACT  ------------->
+
+    
+    <div id="sub-connect-wrapper">
+        <button onclick="connectMetamask()" id="connect-btn">Connect to Metamask</button>
+        <p id="metamask-connection-message">Not Connected</p>
+    </div>
+ 
+    <div id="connect-contract-wrapper">
+        <form class="form-wrapper">
+            <label class="form-label" id="token-contract-address-label">Input token contract address:</label>
+            <input class="form-input address-input" id="token-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button onclick="getTokenAddress()" id="submit-btn">Submit Address</button>
+        <p class="confirmation-message" id="submit-token-address-confirmation"></p>
+    </div>
+
+<!----------------  PURCHASE TOKENS  ------------->
+
+    <h1  class="section-title">Purchase Presale Tokens</h1>
+    <div class="section-container">
+        <h3 class="section-subtitle">Step 1 ... Input Presale Contract Address</h3>
+        <form class="form-wrapper">
+            <label class="form-label address-label" id="presale-contract-address-label">Input address:</label>
+            <input class="form-input address-input" id="presale-contract-address-input" placeholder="Enter address" />
+        </form>
+        <button class="main-section-btn" onclick="getPresaleAddress()">Submit Address</button>
+        <p class="confirmation-message" id="submit-presale-address-confirmation"></p>
+
+
+        <h3 class="section-subtitle">Step 2 ... Get Token Conversion Rate</h3>
+        <button class="main-section-btn get-rate-btn" onclick="getConversionRate()">Get Rate</button>
+        <p class="data-check" id="tokens-per-eth"></p>
+
+        
+        <h3 class="section-subtitle">Step 3 ... Purchase Tokens</h3>
+        <form class="form-wrapper">
+            <label class="form-label">Input amount of ETH you would like to send:</label>
+            <input class="form-input" id="eth-deposit-amount" placeholder="Enter amount" />
+        </form>
+        <button class="main-section-btn" onclick="purchaseTokens()">Purchase Tokens</button>
+        <p class="confirmation-message" id="amount-purchased"></p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!----------------  PURCHASE TOKENS ------------->
+
+       
+
+
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+    <script src="index.js" ></script>
+    
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <title>Token Creation and Vesting</title>
+        
+    </head>
+    <body>
+
+        <div id="header-container">
+            <h1 class="header-title">TOKEN MINTER AND VESTING APP</h1> 
+            <h2 class="header-subtitle">Registration</h2>
+            <nav>
+                <a id="home-link" href="home.html">Home Page</a>
+                <a id="withdrawals-link" href="withdrawals.html">Withdrawals Page</a>
+                <a id="presale-link" href="pre-sale.html">Pre-Sale Page</a>
+            </nav>
+        </div>
+
+        <div id="main-connect-wrapper">
+            <div id="sub-connect-wrapper">
+                <button onclick="connectMetamask()" id="connect-btn">Connect to Metamask</button>
+                <p id="metamask-connection-message">Not Connected</p>
+            </div>
+        </div>
+    
+
+        <!----------------  TOKEN CREATION ------------->
+        <h1 class="section-title">Create Your Token</h1>
+        <div class="section-container">
+            <form class="form-wrapper">
+                <input class="form-input" id="name" placeholder="Enter token name" />
+                <input class="form-input" id="symbol" placeholder="Enter token symbol" />
+                <input class="form-input" id="amount" placeholder="Enter # of tokens to be created" />
+            </form>
+            <button class="main-section-btn" id="mint-btn" onclick="deployTokenContract()">Mint Tokens</button>
+            <p id="token-contract-address"></p>
+        </div>
+
+
+        <!----------------  FOUNDERS SECTION ------------->
+
+        <h1  class="section-title">Set Vesting Schedule for Founders</h1>
+        <div class="section-container">
+            <h3 class="section-subtitle">Step 1 ... Deploy the Vesting Contract for Founders</h3>
+            <button class="main-section-btn deploy-btn" onclick="deployFoundersContract()">Deploy Contract</button>
+            <p class="contract-address" id="founders-contract-address"></p>
+        
+            <h3 class="section-subtitle">Step 2 ... Add Founders</h3>
+            <div class="form-wrapper">
+                <input class="form-input" id="founder_Address" placeholder="Enter founder address" />
+                <input class="form-input" id="founderTokenAmount" placeholder="Enter # of tokens allocated to founder" />
+            </div>
+            <button class="main-section-btn" onclick="addFounder()">Add Founder to Contract</button>
+            <p class="confirmation-message" id="founder-added-confirmation"></p>
+
+
+            <h3 class="section-subtitle">Step 3 ... Lock All Founder Tokens</h3>
+            <div class="form-wrapper">
+                <input class="form-input" id="numLockedFounderTokens" placeholder="Enter total # of founder tokens to lock" />
+                <input class="form-input" id="founderLockDuration" placeholder="Enter # of days to lock" />
+            </div>
+            <button class="main-section-btn lock-btn" onclick="lockFounderTokens()">Lock Founders Tokens</button>
+            <p class="locking-stats" id="num-founder-tokens-locked"></p>
+            <p class="locking-stats" id="date-of-founder-locking"></p>
+            <p class="locking-stats" id="founder-lockup-duration"></p>
+
+        </div>
+
+        <!----------------  INVESTORS SECTION ------------->
+
+        <h1  class="section-title">Set Vesting Schedule for Investors</h1>
+        <div class="section-container">
+            <h3 class="section-subtitle">Step 1 ... Deploy the Vesting Contract for Investors</h3>
+            <button class="main-section-btn deploy-btn" onclick="deployInvestorsContract()">Deploy Contract</button>
+            <p class="contract-address" id="investors-contract-address"></p>
+      
+            <h3 class="section-subtitle">Step 2 ... Add Investors</h3>
+            <div class="form-wrapper">
+                <input class="form-input" id="investor_Address" placeholder="Enter investor address" />
+                <input class="form-input" id="investorTokenAmount" placeholder="Enter # of tokens allocated to investor" />
+            </div>
+            
+            <button class="main-section-btn" onclick="addInvestor()">Add Investor to Contract</button>
+            <p class="confirmation-message" id="investor-added-confirmation"></p>
+
+            <h3 class="section-subtitle">Step 3 ... Lock All Investor Tokens</h3>
+
+            <div class="form-wrapper">
+                <input class="form-input" id="numLockedInvestorTokens" placeholder="Enter total # of investor tokens to lock" />
+                <input class="form-input" id="investorLockDuration" placeholder="Enter # of days to lock" />
+            </div>
+            
+            <button class="main-section-btn lock-btn" onclick="lockInvestorTokens()">Lock Investors Tokens</button>
+            <p class="locking-stats" id="num-investor-tokens-locked"></p>
+            <p class="locking-stats" id="date-of-investor-locking"></p>
+            <p class="locking-stats" id="investor-lockup-duration"></p>
+
+        </div>
+
+
+        <!----------------  PRESALE SECTION ------------->
+
+        <h1  class="section-title">Set Vesting Schedule for Presale Buyers</h1>
+
+        <div class="section-container">
+            <h3 class="section-subtitle">Step 1 ... Deploy the Vesting Contract for Presale Buyers</h3>
+
+            <div class="form-wrapper">
+                <label class="form-label">Enter # of tokens each buyer will receive per 1 ETH:</label>
+                <input class="form-input" id="conversion-rate" placeholder="Enter # of tokens per ETH" />
+            </div>
+            <button class="main-section-btn" onclick="deployPresaleContract()">Deploy Presale Vesting Contract</button>
+            <p class="contract-address" id="presale-contract-address"></p>
+
+            <h3 class="section-subtitle">Step 2 ... Lock All Presale Buyer Tokens</h3>
+
+            <div class="form-wrapper">
+                <input class="form-input" id="numLockedPresaleTokens" placeholder="Enter # of tokens to lock" />
+                <input class="form-input" id="presaleLockDuration" placeholder="Number of days to lock" />
+            </div>
+            <button class="main-section-btn lock-btn" onclick="lockPresaleTokens()">Lock Presale Tokens</button>
+            <p class="locking-stats" id="num-presale-tokens-locked"></p>
+            <p class="locking-stats" id="date-of-presale-locking"></p>
+            <p class="locking-stats" id="presale-lockup-duration"></p>
+        </div>
+
+
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+            type="application/javascript"></script>
+        <script src="index.js" ></script>
+        
+    </body>
+</html>

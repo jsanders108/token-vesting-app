@@ -1,0 +1,216 @@
+html, body {
+  margin: 0;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  background: #e6e6e6;  
+}
+
+  
+/* HEADER */
+  
+#header-container {
+  display: flex; 
+  flex-direction: column; 
+  background: darkblue; 
+  padding: 20px 10px; 
+  margin-bottom: 30px; 
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.2);
+  text-align: center; 
+}
+    
+.header-title,
+.header-subtitle {
+  color: whitesmoke; 
+  font-family:'Ubuntu', sans-serif;
+}
+
+#withdrawals-link, #presale-link, #home-link {
+  color: whitesmoke;
+  margin: 0 10px; 
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#withdrawals-link:hover,
+#withdrawals-link:focus, 
+#presale-link:hover,
+#presale-link:focus {
+  color: lightsalmon; 
+}
+
+nav {
+  align-self: flex-end;
+}
+
+
+
+/* CONNECTORS */
+
+#sub-connect-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px; 
+}
+
+#connection-message{
+  margin: 10px;
+}
+
+#connect-btn,
+#submit-btn {
+  background: maroon;
+  color: white;
+  padding: 10px 20px; 
+  font-size: 20px; 
+  border: none;
+  border-radius: 7px; 
+  margin-bottom: 5px; 
+  cursor: pointer; 
+}
+
+#submit-btn {
+  align-self: center;
+}
+
+#connect-btn:active {
+  box-shadow: inset 10px 10px 10px -3px rgba(0, 0, 0, 0.7);
+  background: lightcoral; 
+}
+
+  
+/*MAIN SECTIONS */
+
+/*Layout*/
+
+.section-container {
+  display: flex;
+  flex-direction: column;   
+  background: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  max-width: 550px; 
+  margin: 60px auto; 
+  margin-top: 10px; 
+  padding: 10px; 
+  border-radius: 10px;
+}
+
+#connect-contract-wrapper {
+  display: flex;
+  flex-direction: column; 
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column; 
+  margin: 20px auto;  
+}
+
+.section-title {
+  text-align: center; 
+}
+
+.section-subtitle {
+  margin-left: 15px; 
+  margin-bottom: -10px;
+}
+
+
+.contract-address {
+  text-align: center;
+  margin-top: 30px;  
+  color: red;
+}
+
+.locking-stats {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center; 
+  color: red; 
+}
+
+
+.confirmation-message,
+.data-check {
+  text-align: center;
+  margin-top: 25px;  
+  color: red; 
+}  
+
+
+#token-contract-address {
+  text-align: center;
+  margin-top: 30px; 
+  color: red;  
+}
+
+
+/*Forms, inputs, and Labels*/
+
+.form-input {
+  width: 245px;
+  margin-bottom: 0px;
+  margin-top: 10px;  
+  padding: 5px 5px;
+}
+
+.address-input {
+  text-align: left;
+}
+
+.form-label {
+  margin-top: 20px; 
+}
+
+#token-contract-address-label{
+  margin-top: 0px; 
+}
+
+.address-label {
+  margin-top: 10px; 
+}
+
+/*Buttons*/
+
+.main-section-btn {
+  align-self: center;
+  background-color: darkblue;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 0px; 
+  border-radius: 12px; 
+  cursor: pointer;
+}
+  
+.main-section-btn:focus {
+  outline: none;
+}
+  
+.main-section-btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+  background: lightcoral; 
+}
+
+.check-balance-btn,
+.get-rate-btn {
+  margin-top: 25px; 
+}
+
+
+.lock-btn {
+  margin-bottom: 20px; 
+}
+
+.deploy-btn {
+  margin-top: 30px;
+}
+
+
+
+
